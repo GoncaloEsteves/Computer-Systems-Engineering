@@ -1,0 +1,22 @@
+message("GNU compiler selected")
+
+SET(CONFIG_COMPILER__FLAGS__SSSE3 "-march=native")
+SET(CONFIG_COMPILER__FLAGS__SSSE3 "-march=native")
+SET(CONFIG_COMPILER__FLAGS__SSE41 "-march=native")
+SET(CONFIG_COMPILER__FLAGS__SSE42 "-march=native")
+SET(CONFIG_COMPILER__FLAGS__AVX   "-march=native")
+SET(CONFIG_COMPILER__FLAGS__AVX2  "-march=native")
+SET(CONFIG_COMPILER__FLAGS__AVX512KNL "-march=native")
+SET(CONFIG_COMPILER__FLAGS__AVX512SKX "-march=native")
+SET(CONFIG_COMPILER__FLAGS__AVX512CLX "-march=native")
+SET(CONFIG_COMPILER__FLAGS__NEON "-march=native")
+
+SET(CMAKE_CXX_FLAGS "-fPIC") # -Werror=double-promotion -Wconversion")
+SET(CMAKE_CXX_FLAGS_DEBUG          "-g -ftree-ter")
+SET(CMAKE_CXX_FLAGS_RELEASE        "-DNDEBUG    -O3 -Wstrict-aliasing=0 -ffast-math ")
+SET(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-DNDEBUG -g -O3 -Wstrict-aliasing=0 -ffast-math ")
+SET(CMAKE_EXE_LINKER_FLAGS "")
+
+IF (NOT RTCORE_EXPORT_ALL_SYMBOLS)
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility-inlines-hidden -fvisibility=hidden")
+ENDIF()
